@@ -4,7 +4,6 @@
     "": {
       "name": "tajniacy",
       "dependencies": {
-        "@react-native/new-app-screen": "0.85.3",
         "react": "19.2.3",
         "react-native": "0.85.3",
         "react-native-safe-area-context": "^5.5.2",
@@ -400,8 +399,6 @@
     "@react-native/metro-babel-transformer": ["@react-native/metro-babel-transformer@0.85.3", "", { "dependencies": { "@babel/core": "^7.25.2", "@react-native/babel-preset": "0.85.3", "hermes-parser": "0.33.3", "nullthrows": "^1.1.1" } }, "sha512-omuKq+r7jM4XvCMIlNMPP7Up3SyB8o5EAdZtF7YXniKyq7UOMBqhYHFqgsdOXr0lT+3ADf7VCJG3sb82jlBrrQ=="],
 
     "@react-native/metro-config": ["@react-native/metro-config@0.85.3", "", { "dependencies": { "@react-native/js-polyfills": "0.85.3", "@react-native/metro-babel-transformer": "0.85.3", "metro-config": "^0.84.3", "metro-runtime": "^0.84.3" } }, "sha512-sVo6HepUmCcpdfozEf91lA0FjpLNNZYu/Zi9FiYiAQTK8pzATXDVTqhvdxpFrQn435p5eUTSbllvbH/KN+bnyA=="],
-
-    "@react-native/new-app-screen": ["@react-native/new-app-screen@0.85.3", "", { "peerDependencies": { "@types/react": "^19.1.0", "react": "*", "react-native": "0.85.3" }, "optionalPeers": ["@types/react"] }, "sha512-JcYblGfK3/GbE+pmPgBmfeXDFKaltnJz9S0Ot++dR6amINk17et0rTNRwBMm6XBlrM9kFLdsdkELo5rpUI/Urg=="],
 
     "@react-native/normalize-colors": ["@react-native/normalize-colors@0.85.3", "", {}, "sha512-hj0PScZEhIbcOvQV5yMKX3ha4XEIOy/SVE1Rrpp0beW0dpNLOgSC7KDxGewmDnIHK9YdQUXGY9eMEfShUMIaZw=="],
 
