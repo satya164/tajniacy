@@ -3,8 +3,8 @@ import { globalStyles } from "@styles/index";
 import React from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { RootStackNavigationProp } from "..";
-import { ThemedView } from "@components/general/ThemedView";
-import { ThemedText } from "@components/general/ThemedText";
+import { ThemedView, ThemedText } from "@components/general";
+import { CenterLayout } from "@components/layout";
 
 export interface HomeScreenProps {
   navigation: RootStackNavigationProp,
@@ -15,11 +15,13 @@ export function HomeScreen(props: HomeScreenProps) {
 
   return (
     <ThemedView style={[globalStyles.flexContainer, { paddingTop: safeAreaInsets.top }]}>
-      <NavigationButton onPress={() => {
-        props.navigation.navigate('Game');
-      }}>
-        <ThemedText>Start game</ThemedText>
-      </NavigationButton>
+      <CenterLayout>
+        <NavigationButton onPress={() => {
+          props.navigation.navigate('Game');
+        }}>
+          <ThemedText>Start game</ThemedText>
+        </NavigationButton>
+      </CenterLayout>
     </ThemedView>
   );
 }

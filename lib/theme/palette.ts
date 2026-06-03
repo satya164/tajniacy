@@ -113,7 +113,7 @@ export const Colors: ColorPalette = {
   offBackground: Palette.OffWhite,
   primary: Palette.NavyLight100,
   text: Palette.Black,
-  cardBackground: Palette.White,
+  cardBackground: Palette.NavyLight80,
   cardBorder: Palette.NavyLight20,
 };
 
@@ -125,6 +125,6 @@ export const DarkColors: ColorPalette = {
   offBackground: Palette.OffNavy,
   primary: Palette.NavyLight10,
   text: Palette.NavyLight10,
-  cardBackground: Palette.Navy,
+  cardBackground: Palette.NavyDark120,
   cardBorder: Palette.NavyDark60,
 };
