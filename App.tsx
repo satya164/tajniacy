@@ -1,41 +1,43 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { ColorSchemeName, StatusBar, useColorScheme } from 'react-native';
 import {
   SafeAreaProvider,
-  useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import { NavigationRoot } from '@navigation/index';
+import { ThemeContext } from '@contexts/ThemeContext';
+import { useMemo } from 'react';
+import { Theme } from '@theme/index';
+import { DarkColors, LightColors } from '@theme/palette';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = useColorScheme();
+  const colorScheme = useColorScheme();
+  const theme = useThemeByColorSchemeName(colorScheme);
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <ThemeContext value={theme}>
+      <SafeAreaProvider>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <NavigationRoot />
+      </SafeAreaProvider>
+    </ThemeContext>
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={[styles.container, { paddingTop: safeAreaInsets.top }]}>
-      <Text>Hello world</Text>
-    </View>
-  );
+function useThemeByColorSchemeName(colorScheme: ColorSchemeName): Theme {
+  const themeValue = useMemo<Theme>(() => {
+    if (colorScheme === 'dark') {
+      return {
+        kind: 'dark',
+        colors: DarkColors,
+      }
+    } else {
+      return {
+        kind: 'light',
+        colors: LightColors,
+      }
+    }
+  }, [colorScheme]);
+  return themeValue;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
