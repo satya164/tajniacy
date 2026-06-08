@@ -6,12 +6,13 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "start": "react-native start",
     "test": "jest"
   },
   "dependencies": {
-    "@react-navigation/native": "^8.0.0-alpha.28",
-    "@react-navigation/native-stack": "^8.0.0-alpha.34",
+    "@react-navigation/native": "^8.0.0-alpha.34",
+    "@react-navigation/native-stack": "^8.0.0-alpha.41",
     "react": "19.2.3",
     "react-native": "0.85.3",
     "react-native-gesture-handler": "^3.0.0",
@@ -38,7 +39,7 @@
     "jest": "^29.6.3",
     "prettier": "2.8.8",
     "react-test-renderer": "19.2.3",
-    "typescript": "^5.8.3"
+    "typescript": "^6.0.3"
   },
   "engines": {
     "node": ">= 22.11.0"

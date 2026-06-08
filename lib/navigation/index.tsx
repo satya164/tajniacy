@@ -1,35 +1,41 @@
-import { DarkTheme, DefaultTheme, NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator, type NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { GameScreen, HomeScreen } from "./screens";
-import { useTheme } from "@hooks/useTheme";
-import { useMemo } from "react";
-import { Theme } from "@theme/index";
-import { Theme as ReactNavigationTheme } from '@react-navigation/native'
+import {
+  createStaticNavigation,
+  DarkTheme,
+  DefaultTheme,
+} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { GameScreen, HomeScreen } from './screens';
+import { useTheme } from '@hooks/useTheme';
+import { useMemo } from 'react';
+import { Theme } from '@theme/index';
+import { Theme as ReactNavigationTheme } from '@react-navigation/native';
 
-export type RootStackParamList = {
-  Home: undefined;
-  Game: undefined;
+const RootStack = createNativeStackNavigator({
+  screenOptions: {
+    headerShown: false,
+  },
+  screens: {
+    Home: HomeScreen,
+    Game: GameScreen,
+  },
+});
+
+type RootStackType = typeof RootStack;
+
+declare module '@react-navigation/core' {
+  interface RootNavigator extends RootStackType {}
 }
 
-export type RootStackNavigationProp = NativeStackNavigationProp<RootStackParamList>;
-
-const RootStack = createNativeStackNavigator<RootStackParamList>();
+const Navigation = createStaticNavigation(RootStack);
 
 export function NavigationRoot() {
   const theme = useTheme();
 
   const reactNavigationTheme = useMemo(() => {
-    return createReactNavigationThemeFromTheme(theme)
+    return createReactNavigationThemeFromTheme(theme);
   }, [theme]);
 
-  return (
-    <NavigationContainer theme={reactNavigationTheme}>
-      <RootStack.Navigator screenOptions={{ headerShown: false }}>
-        <RootStack.Screen name='Home' component={HomeScreen} />
-        <RootStack.Screen name='Game' component={GameScreen} />
-      </RootStack.Navigator>
-    </NavigationContainer>
-  );
+  return <Navigation theme={reactNavigationTheme} />;
 }
 
 function createReactNavigationThemeFromTheme(theme: Theme): ReactNavigationTheme {

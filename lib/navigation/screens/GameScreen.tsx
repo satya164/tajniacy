@@ -1,18 +1,12 @@
 import { globalStyles } from "@styles/index";
 import React from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { RootStackNavigationProp } from "..";
-import { ThemedText, ThemedView } from "@components/general";
+import { ThemedView } from "@components/general";
 import { CenterLayout } from "@components/layout";
-import { NavigationButton } from "@components/NavigationButton";
 import { View } from "react-native";
 import { ClueCard } from "@components/card";
 
-export interface GameScreenProps {
-  navigation: RootStackNavigationProp,
-}
-
-export function GameScreen(props: GameScreenProps) {
+export function GameScreen() {
   const safeAreaInsets = useSafeAreaInsets();
 
   return (
